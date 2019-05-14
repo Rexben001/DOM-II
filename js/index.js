@@ -21,8 +21,6 @@ bodyPage.addEventListener("keydown", event => {
       alert(`You just pressed key ${event.key}`);
   } else {
       bodyPage.style.backgroundColor = "inherit";
-      alert(`You just pressed key ${event.key}`);
-
   }
 });
 
@@ -63,7 +61,8 @@ imgContent.addEventListener('dblclick', () => {
 
 //click
 bodyPage.addEventListener('click', (event) => {
-    if (event.srcElement.className === 'nav-link')
+    event.stopPropagation();
+    if (event.srcElement.className === 'nav-link' || event.srcElement.localName === 'img')
     {
         return;
     } else
@@ -79,6 +78,8 @@ const link = document.getElementsByTagName('a');
 for (let i of link)
 {
     i.addEventListener('mouseleave', (event) => {
+        event.stopPropagation();
+        event.preventDefault();
         event.target.setAttribute('style', 'color: green;');
     })
 }
