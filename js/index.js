@@ -61,7 +61,6 @@ imgContent.addEventListener('dblclick', () => {
 
 //click
 bodyPage.addEventListener('click', (event) => {
-    console.log(event.srcElement.className)
     if (event.srcElement.className === 'nav-link' || event.srcElement.localName === 'img')
     {
         return;
@@ -100,11 +99,9 @@ for (let i of link)
 
 const destination = document.querySelector('.destination');
 const btn = document.querySelector('.btn');
-console.log(destination);
 destination.addEventListener('click', () => {
     destination.style.border = '2px solid red';
 })
-console.log(btn);
 btn.addEventListener('click', (event) => {
     btn.style.border = '2px solid red';
     event.stopPropagation();
