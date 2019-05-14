@@ -1,6 +1,6 @@
 // Your code goes here
 
-// mouseover and mouseout
+// mouseover
 const logoHeading = document.querySelector(".logo-heading");
 logoHeading.addEventListener("mouseover", () => {
   logoHeading.setAttribute(
@@ -8,6 +8,8 @@ logoHeading.addEventListener("mouseover", () => {
     "color:red; cursor:pointer; box-shadow: 0 5px 5px #000"
   );
 });
+
+// mouseout
 logoHeading.addEventListener("mouseout", () => {
   logoHeading.setAttribute("style", "color:inherit;");
 });
@@ -15,9 +17,12 @@ logoHeading.addEventListener("mouseout", () => {
 const bodyPage = document.querySelector("body");
 bodyPage.addEventListener("keydown", event => {
   if (event.key === "1") {
-    bodyPage.style.backgroundColor = "rgba(0,0,0,.3)";
+      bodyPage.style.backgroundColor = "rgba(0,0,0,.3)";
+      alert(`You just pressed key ${event.key}`);
   } else {
-    bodyPage.style.backgroundColor = "inherit";
+      bodyPage.style.backgroundColor = "inherit";
+      alert(`You just pressed key ${event.key}`);
+
   }
 });
 
@@ -34,33 +39,56 @@ window.addEventListener("load", () => {
   setTimeout(() => (firstImage.style.display = "block"), 1000);
 });
 
-const contentDestination = document.querySelector('.content-destination');
 
-const navLink = document.querySelector('.nav-link:first-child');
-
-navLink.addEventListener('click', (event) => {
-    console.log(2345678)
-    event.preventDefault();
-    contentDestination.focus();
-});
-
-if (contentDestination.focus())
-{
-    contentDestination.setAttribute('style', 'color: red');
-}
 
 //resize
 window.addEventListener('resize', (event) => {
     bodyPage.style.backgroundColor = 'rgba(0,0,0, .1)';
 });
 
-//cscroll
+//scroll
 window.addEventListener('scroll', () => {
     const red = Math.floor(Math.random() * 256);
     const blue = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
   
     bodyPage.style.color = `rgb(${red},${green},${blue})`;
-
-    console.log('its working')
 });
+
+// dbclick
+const imgContent = document.querySelector('.img-content img');
+imgContent.addEventListener('dblclick', () => {
+    imgContent.classList.toggle('rotate-it');
+})
+
+//click
+bodyPage.addEventListener('click', (event) => {
+    if (event.srcElement.className === 'nav-link')
+    {
+        return;
+    } else
+    {
+        event.target.style.display = 'none';
+    }
+});
+
+//mouseleave
+
+const link = document.getElementsByTagName('a');
+
+for (let i of link)
+{
+    i.addEventListener('mouseleave', (event) => {
+        event.target.setAttribute('style', 'color: green;');
+    })
+}
+
+//mouseenter
+
+for (let i of link)
+{
+    i.addEventListener('mouseenter', (event) => {
+        event.target.setAttribute('style', 'color: blue;');
+    })
+
+}
