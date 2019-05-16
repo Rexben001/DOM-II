@@ -134,14 +134,14 @@ html {
 }
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
 }
 h1 {
   font-size: 4rem;
@@ -173,6 +173,12 @@ img {
     width: 90%;
     margin: 0 5%;
   }
+}
+.rotate-it {
+  transform: translate(-20px, 0px) rotate(90deg);
+  margin-left: 50px;
+  width: 50%;
+  height: 70%;
 }
 .main-navigation {
   width: 100%;
